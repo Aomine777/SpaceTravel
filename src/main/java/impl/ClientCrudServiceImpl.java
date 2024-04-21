@@ -10,6 +10,7 @@ import java.util.List;
 public class ClientCrudServiceImpl implements ClientCrudService {
     @PersistenceContext
     private EntityManager entityManager;
+
     @Override
     public Client create(Client client) {
         entityManager.persist(client);
@@ -24,7 +25,7 @@ public class ClientCrudServiceImpl implements ClientCrudService {
     @Override
     public void delete(Integer id) {
         Client client = findById(id);
-        if(client != null){
+        if (client != null) {
             entityManager.remove(client);
         }
     }

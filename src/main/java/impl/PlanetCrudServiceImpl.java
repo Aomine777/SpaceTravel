@@ -10,6 +10,7 @@ import java.util.List;
 public class PlanetCrudServiceImpl implements PlanetCrudService {
     @PersistenceContext
     private EntityManager entityManager;
+
     @Override
     public Planet create(Planet planet) {
         entityManager.persist(planet);
@@ -24,7 +25,7 @@ public class PlanetCrudServiceImpl implements PlanetCrudService {
     @Override
     public void delete(String id) {
         Planet planet = findById(id);
-        if(planet != null){
+        if (planet != null) {
             entityManager.remove(planet);
         }
     }
